@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/comman.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <style>
+    .main {
+      display: flex;
+      justify-content: space-between;
+      border: 1px solid #d3d3d3;
+      /* 设值border四边宽度 */
+      border-width: 0 1px;
+
+      /* mian总宽度是780,留1给背景图的border,做到靠space-between属性,网易云是float:right */
+      background: url(../img/mainBg.png) repeat-y 100% 100%;
+    }
+    /* 左边 */
+    .main .area-left {
+      width: 729px;
+    }
+
+    /* 右边 */
+    .main .area-right {
+      width: 250px;
+    }
+
+    /* vip图片 */
+    .main .area-right .vip {
+      margin-top: 5px;
+    }
+    .main .area-right .vip img{
+      width: 100%;
+      height: 100%;
+    }
+
+    /* 用户登录 */
+    .main .area-right .user-login { 
+      height: 126px;
+      background: url(../img/user-login.png) no-repeat 0 0;
+    }
+    .main .area-right .user-login p {
+      width: 205px;
+      margin: 0 auto;
+      padding: 16px 0;
+      line-height: 22px;
+    }
+    .main .area-right .user-login a {
+      display: block;
+      margin: 0 auto;
+      width: 100px;
+      height: 31px;
+      line-height: 31px;
+      text-align: center;
+      color: #fff;
+      text-shadow: 0 1px 0 #8a060b;
+      background: url(../img/user-login.png) no-repeat 0 -195px;
+    }
+    .main .area-right .user-login a:hover {
+      background-position: -110px -195px;
+    }
+
+    /* 复用:头部 */
+    .main .area-right .head-type-01 {
+      margin: 15px 20px 0;
+    }
+    .main .area-right .head-type-01 a {
+      color:#666;
+      font-weight: normal;
+    }
+
+
+    /* 歌手列表 */
+    .main .area-right .singers-list {
+      margin: 6px 20px 14px 20px;;
+    }
+    .main .area-right .singers-list .item{
+      /* a非替换元素嵌套div这些会报错 */
+      /* 设flex自动带有block,inline-flex有inline-block */
+      display: flex;
+      margin-top: 14px;
+    }
+    .main .area-right .singers-list .info {
+      /* 文本垂直居中 */
+      /* 方法一 */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      /* 不能用align-item:center因为就没有align-item:normal的特性自动拉伸了 */
+      
+      flex: 1;
+      /* 必设:让其知道子元素要是超出会隐藏 */
+      overflow: hidden;
+
+      /* width: 133px; */
+      height: 60px;
+      margin-left: 14px;
+      border: 1px solid #e9e9e9;
+      border-left: none;
+      font-size: 14px;
+      color: #333;
+
+      /* 与文本相关大概率有继承性 */
+      font-weight: bold;
+    }
+    
+    /* 两行文本居中方法二 */
+    /* 然后再子内容设置margin使其达所要效果即可 */
+     /* .main .area-right .singers-list .info .mid { 
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }  */
+
+
+    .main .area-right .singers-list  .desc {
+      font-size: 12px;
+      color: #666;
+      font-weight: normal;
+      /* width: 90%; */
+
+      /* 方法二要的样式 */
+      /* margin-top: 5px; */
+
+      /* 文本省略为点点 */
+      /* 问题:当给父元素设了flex:1是这里没效果,超出会直接撑开 */
+      /* 解决:给父元素设overflow:hidden这父元素知道超出会隐藏就触发下面代码 */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      word-wrap: normal;
+    }
+    
+
+    /* 按钮 */
+    .area-right .apply {
+      padding: 6px 20px 14px 20px;
+    }
+    .btn-module{
+      /* 包裹子元素,设block会自动填充父元素宽度而不是被子元素撑开 */
+      /* display: inline-block;则是由子元素或自身设的宽度决定 */
+
+      /* 给了其父元素设了宽度,让其继承 */
+      display:block;
+      height: 31px;
+      border-radius: 4px;
+      line-height: 31px;
+      padding-right:3px ;
+      text-align: center;
+      background: url(../img/btn.png) no-repeat right -100px;
+    }
+    
+    .btn-module i{
+      display: block;
+      font-weight: bold;
+      background-position: 0 -59px;
+      color: #333;
+    }
+
+    .area-right .apply>.btn-module:hover{
+      background-position: right -182px;
+    }
+
+    .area-right .apply>.btn-module:hover i{
+      background-position: 0 -141px;
+    }
+
+    /* 热门主播列表 */
+    .main .area-right .singers-list .cover2 img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .main .area-right .singers-list .info2 {
+      /* 文本垂直居中 */
+      /* 方法一 */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      /* 不能用align-item:center因为就没有align-item:normal的特性自动拉伸了 */
+      
+      flex: 1;
+      /* 必设:让其知道子元素要是超出会隐藏 */
+      overflow: hidden;
+
+      /* width: 133px; */
+      height: 40px;
+      margin-left: 14px;
+      font-size: 14px;
+      color: #333;
+
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper_02 main">
+    <div class="area-left"></div>
+    <div class="area-right">
+      <!-- vip图片 -->
+      <div class="vip">
+        <img src="../img/main_vip.png">
+      </div>
+      
+      <!-- 用户登录 -->
+      <div class="user-login">
+        <p>登录网易云音乐，可以享受无限收藏的乐趣，并且无限同步到手机</p>
+        <a href="#">用户登录</a>
+      </div>
+
+      <!-- 复用:头部 -->
+      <div class="head-type-01">
+        <div class="resident-singer">入驻歌手</div>
+        <a href="#">查看全部&nbsp;&gt;</a>
+      </div>
+
+      <!-- singer列表 -->
+      <ul class="singers-list">
+        <li>
+          <a href="#" class="item">
+            <div class="cover">
+              <img src="../img/singer.jpg" alt="">
+            </div>
+
+            <!-- 两行垂直居中方法一(两行及以上首用flex) -->
+            <div class="info">
+              <div class="singerN">吴莫愁</div>
+              <div class="desc">《中国好声音》</div>
+            </div>
+
+            <!-- 两行垂直居中方法二 -->
+            <!-- <div class="info">
+              <div class="mid">
+                <div class="singerN">吴莫愁</div>
+                <div class="desc">《中国好声音》选手吴莫愁</div>
+              </div>
+            </div> -->
+          </a>
+        </li>
+        <li>
+          <a href="#" class="item">
+            <div class="cover">
+              <img src="../img/singer.jpg" alt="">
+            </div>
+
+            <!-- 两行垂直居中方法一(两行及以上首用flex) -->
+            <div class="info">
+              <div class="singerN">吴莫愁</div>
+              <div class="desc">《中国好声音》选手吴莫愁gdsgdg</div>
+            </div>
+
+          </a>
+        </li>
+        <li>
+          <a href="#" class="item">
+            <div class="cover">
+              <img src="../img/singer.jpg" alt="">
+            </div>
+
+            <!-- 两行垂直居中方法一(两行及以上首用flex) -->
+            <div class="info">
+              <div class="singerN">吴莫愁</div>
+              <div class="desc">《中国好声音》选手吴莫愁</div>
+            </div>
+
+          </a>
+        </li>
+        <li>
+          <a href="#" class="item">
+            <div class="cover">
+              <img src="../img/singer.jpg" alt="">
+            </div>
+
+            <!-- 两行垂直居中方法一(两行及以上首用flex) -->
+            <div class="info">
+              <div class="singerN">吴莫愁</div>
+              <div class="desc">《中国好声音》选手吴莫愁</div>
+            </div>
+
+          </a>
+        </li>
+        <li>
+          <a href="#" class="item">
+            <div class="cover">
+              <img src="../img/singer.jpg" alt="">
+            </div>
+
+            <!-- 两行垂直居中方法一(两行及以上首用flex) -->
+            <div class="info">
+              <div class="singerN">吴莫愁</div>
+              <div class="desc">《中国好声音》选手吴莫愁</div>
+            </div>
+
+          </a>
+        </li>
+      </ul>
+
+      <!-- 按钮 -->
+      <div class="apply">
+        <a href="#" class="btn-module .btn-type-01">
+          <i class="btn-module ">申请成为网易云音乐人</i>
+        </a>
+      </div>
+
+      <!-- 热门主播列表栏 -->
+      <div class="head-type-01">
+        <div class="resident-singer">热门主播</div>
+      </div>
+
+      <!-- 热门主播列表 -->
+      <ul class="singers-list">
+        <li>
+          <a href="#" class="item">
+            <div class="cover2">
+              <img src="../img/hotSingerListImg.jpg" alt="">
+            </div>
+
+            <!-- 两行垂直居中方法一(两行及以上首用flex) -->
+            <div class="info2">
+              <div class="singerN">莫非定律乐团</div>
+              <div class="desc">歌手、播客节目《维维道来》主理人</div>
+            </div>
+
+            <!-- 两行垂直居中方法二 -->
+            <!-- <div class="info">
+              <div class="mid">
+                <div class="singerN">吴莫愁</div>
+                <div class="desc">《中国好声音》选手吴莫愁</div>
+              </div>
+            </div> -->
+          </a>
+        </li>
+        <li>
+          <a href="#" class="item">
+            <div class="cover2">
+              <img src="../img/hotSingerListImg.jpg" alt="">
+            </div>
+
+            <!-- 两行垂直居中方法一(两行及以上首用flex) -->
+            <div class="info2">
+              <div class="singerN">莫非定律乐团</div>
+              <div class="desc">歌手、播客节目《维维道来》主理人</div>
+            </div>
+
+          </a>
+        </li>
+        <li>
+          <a href="#" class="item">
+            <div class="cover2">
+              <img src="../img/hotSingerListImg.jpg" alt="">
+            </div>
+
+            <!-- 两行垂直居中方法一(两行及以上首用flex) -->
+            <div class="info2">
+              <div class="singerN">莫非定律乐团</div>
+              <div class="desc">歌手、播客节目《维维道来》主理人</div>
+            </div>
+
+          </a>
+        </li>
+        <li>
+          <a href="#" class="item">
+            <div class="cover2">
+              <img src="../img/hotSingerListImg.jpg" alt="">
+            </div>
+
+            <!-- 两行垂直居中方法一(两行及以上首用flex) -->
+            <div class="info2">
+              <div class="singerN">莫非定律乐团</div>
+              <div class="desc">歌手、播客节目《维维道来》主理人</div>
+            </div>
+
+          </a>
+        </li>
+        <li>
+          <a href="#" class="item">
+            <div class="cover2">
+              <img src="../img/hotSingerListImg.jpg" alt="">
+            </div>
+
+            <!-- 两行垂直居中方法一(两行及以上首用flex) -->
+            <div class="info2">
+              <div class="singerN">莫非定律乐团</div>
+              <div class="desc">歌手、播客节目《维维道来》主理人</div>
+            </div>
+
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

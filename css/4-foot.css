@@ -1,0 +1,84 @@
+.main {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #d3d3d3;
+  /* 设值border四边宽度 */
+  border-width: 0 1px;
+
+  /* mian总宽度是780,留1给背景图的border,做到靠space-between属性,网易云是float:right */
+  background: url(../img/mainBg.png) repeat-y 100% 100%;
+}
+/* 左边 */
+.main .area-left {
+  box-sizing: border-box;
+  width: 729px;
+  padding: 20px 20px 40px;
+}
+
+/* 右边 */
+.main .area-right {
+  width: 250px;
+}
+
+/* 底部 */
+.foot {
+  background-color: #f2f2f2;
+}
+
+.foot .icon-list {
+  display: flex;
+  margin-top: 33px;
+  justify-content: space-evenly;
+
+}
+.foot .icon-list .item .icon{ 
+  display: block;
+  width: 45px;
+  height: 45px;
+  margin: 0 auto;
+  background: url(../img/moreIcon2.png) no-repeat -170px -5px;
+  background-size: 220px 220px;
+}
+
+/* hover可以直接使用background-position */
+.foot .icon-list .item .icon:hover{
+  background-position: -5px -115px;
+}
+
+.foot .icon-list .item .tit {
+  display: inline-block;
+  width: 100px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.foot .declaration {
+  margin-top: 60px;
+}
+
+.foot .f-list1  {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+
+.foot .f-list1 span {
+  margin: 0 8px 0 8px;
+  color: #666;
+  
+}
+
+.foot .f-list1 .police-icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: url(../img/police.png) no-repeat;
+  background-size: cover;
+  margin-right: 0px;
+  vertical-align: -2px;
+}
+
+/* 设颜色 */
+.declaration .f-list1 a {
+  color:#666;
+}

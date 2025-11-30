@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+  <style>
+    .bar .bigbar {
+      height: 70px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #000;
+      background: #242424;
+    }
+    .bar .bigbar .nav {
+      display: flex;
+      height: 69px;
+  
+      
+    }
+
+    /* bigbar左侧 */
+    /* 网易云图标 */
+    .bar .bigbar .nav .logo {
+      /* 理论上会继承.nav的高度,但其子元素是block所有出错 */
+      /* 所有出错大概与display的值有关 */
+      width: 176px;
+      background-position:0 0;
+    }
+    .bar .nav .logo a {
+      display: block;
+
+      /* 要设高度,以来撑开父元素,不然是默认高度 */
+      height: 69px;
+      /* 行内非替换元素的text-indent无效,indent缩进 */
+      text-indent: -9999px;
+    }
+
+    .bar .bigbar .nav .navleft { 
+      display: flex;
+    }
+
+    /* 导航栏上的列表:我的做法 */
+    /* .bar .bigbar .navleft .list { 
+      display: flex;
+
+  
+    } 
+    .bar .bigbar .list .item {
+      position: relative;
+      display: block;
+      box-sizing: border-box;
+      font-size: 14px;
+
+      height: 70px; */
+
+      /* 使块元素内容(包括文本)居中 */
+      /* 设了padding,不要在设以调试与里面内容为主的宽度 */
+      /* padding: 24px 11px;
+      text-align: center;
+
+    }
+    .bar .bigbar .list .item:hover,.active{
+      background: #000;
+      color:#fff
+    } */
+
+    /* 老师的做法:主要是使用可以继承(不只是父元素)的line-height,height(不可以继承只可撑开) */
+    .bar .bigbar .navleft .list { 
+      display: flex;
+      height: 69px;
+      line-height: 69px;
+    } 
+    .bar .bigbar .list .item {
+      position: relative;
+      display: block;
+      font-size: 14px;
+      padding: 0 15px;
+    }
+    .bar .bigbar .list .item:hover,.active{
+      background: #000;
+      color:#fff
+    }
+
+    /* 老师代码结束 */
+
+    /* 红三角 */
+    .bar .bigbar .list .active::after  {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      width: 12px;
+      height: 7px;
+      background:url(../img/topbar\ \(1\).png) -226px 0;
+      overflow: hidden;
+    }
+
+    /* hot图标 */
+    .bar .bigbar .list .item7 em {
+      position: absolute;
+      display: inline-block;
+      top: 14px;
+      right: 6px;
+    }
+
+    
+
+    /* 导航栏右侧:登录,搜索 */
+    .bar .bigbar .navright {
+      display: flex;
+    }
+
+    /* 搜索 */
+    .bar .navright .search {
+      display: flex;
+
+      /* 水平 */
+      justify-content: flex-end;
+      /* 竖直 */
+      align-items: center;
+
+      /* 居中 */
+      box-sizing: border-box;
+      margin-top: 19px;
+      padding: 0 10px 0 0;
+
+      width: 158px;
+      height: 32px;
+      background-position: 0 -99px;
+      background-color: #fff;
+      border-radius: 32px;
+    }
+    .bar .navright .search input { 
+      width: 116px;
+      height: 20px;
+    }
+
+    /* 创作者中心 */
+    .bar .navright .mid a{ 
+      display: block;
+      width: 90px;
+      height: 32px;
+      margin:19px 0 0 12px;
+
+      /* 使内容居中 */
+      box-sizing: border-box;
+      padding-left: 16px;
+      border: 1px solid #4f4f4f;
+      line-height: 32px;
+      
+      border-radius: 20px;
+    }
+
+    .bar .navright .mid a:hover {
+      border:1px solid #fff;
+      color:#fff;
+    }
+
+    /* 登录 */
+    .bar .navright .denlu {
+      /* 不设宽度,让内容a把其撑开 */
+      height: 45px;
+      margin: 19px 0 0 20px;
+      padding: 0 22px 0 0;
+  
+    }
+    .bar .navright .denlu a { 
+      display: block;
+      margin-top: 7px;
+      width: 28px;
+    }
+    .bar .navright .denlu:hover a {
+      color:#999;
+    }
+    .bar .navright .denlu a:hover { 
+      color:#787878
+    }
+
+    /* 小的导航栏(红色导航) */
+    .bar .smallbar { 
+      height: 35px;
+
+      /* 重点:line-height继承;,同时注意必须要有块级元素里面要有内容,否则line-height无效 */
+      line-height: 35px;
+      box-sizing: border-box;
+      background-color: #c20c0c;
+      border-bottom: 1px solid #a40011;
+    }
+  
+    .bar .smallbar .nav2 .list2 {
+      display: flex;
+      padding-left: 180px;
+    }
+
+    /* a一定要设为block或inline-block,因为要继承line-height,不是继承不了 */
+    .bar .smallbar .list2 a{ 
+      display: block;
+    }
+    .bar .smallbar .list2 span {
+      display: inline-block;
+      padding: 0 13px;
+      margin: 0 17px 0;
+      color: #FFF;
+    }
+
+    /* 一定要对a设hover,而不是span,否则触碰外框span没效果 */
+    .bar .list2 a:hover span,.active2 {
+      border-radius: 20px;
+      line-height: 21px;
+      background-color: #9b0909;
+    }
+  </style>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/comman.css">
+</head>
+<body>
+  <div class="bar">
+    <div class="bigbar">
+      <div class="nav wrapper_01">
+        <div class="navleft">
+          <!-- 为了优化seo,h1>a>文字,然后文字隐藏 -->
+          <h1 class="logo sprite_img">
+            <a href="#">网易云音乐</a>
+          </h1>
+
+          <!-- 我的做法:列表 -->
+          <!-- 正确写法:ul>(li>a[href='*'].itme)*6 -->
+          <!-- <ul class="list"> -->
+
+            <!-- ::after不能sprint_img active一起用,因为spritn_img是给a的,而::after是独立的,下面那种不用::after可以但必须设个子元素如em -->
+            <!-- <li><a href="#" class="item active">发现音乐</a></li>
+            <li><a href="#" class="item">我的音乐</a></li>
+            <li><a href="#" class="item">关注</a></li>
+            <li><a href="#" class="item item4">商场</a></li>
+            <li><a href="#" class="item item5">音乐人</a></li>
+            <li><a href="#" class="item item6">云推歌</a></li>
+            <li><a href="#" class="item item7 ">
+              下载客户端
+              
+              <em class="sprite_img icon_hot"></em>
+            </a></li>
+          </ul> -->
+
+          <!-- 老师的做法:列表(主要用继承(不只是父元素)的line-height和height) -->
+          <ul class="list">
+            <li><a href="#" class="item active">发现音乐</a></li>
+            <li><a href="#" class="item">我的音乐</a></li>
+            <li><a href="#" class="item">关注</a></li>
+            <li><a href="#" class="item item4">商场</a></li>
+            <li><a href="#" class="item item5">音乐人</a></li>
+            <li><a href="#" class="item item6">云推歌</a></li>
+            <li><a href="#" class="item item7 ">
+              下载客户端
+              <em class="sprite_img icon_hot"></em>
+            </a></li>
+          </ul>
+          <!-- 老师做法结束 -->
+
+        </div>
+        <div class="navright">
+          <div class="search sprite_img">
+            <input type="text" placeholder="音乐/视频/电台/用户">
+          </div>
+          <div class="mid">
+            <a href="#">创作者中心</a>
+          </div>
+          <div class="denlu">
+            <a href="#">登录</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="smallbar">
+      <div class="wrapper_01 nav2">
+        <ul class="list2">
+          <li><a href="#"><span class="active2">推荐</span></a></li>
+          <li><a href="#"><span>排行榜</span></a></li>
+          <li><a href="#"><span>歌单</span></a></li>
+          <li><a href="#"><span>主播电台</span></a></li>
+          <li><a href="#"><span>歌手</span></a></li>
+          <li><a href="#"><span>新碟上架</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

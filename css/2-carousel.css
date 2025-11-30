@@ -1,0 +1,166 @@
+/* 网易云背景图自动设了高斯图 */
+/* .carousel {
+background-image: url(../img/blur.jpg);
+background-size: 6000px;
+background-position: center center;
+}
+.carousel .carousel-inner{
+position: relative;
+width: 982px;
+height: 285px;
+margin: 0 auto;
+background-color: red;
+} */
+
+/* 高斯函数做法 */
+.carousel {
+position: relative;
+overflow: hidden; /* 确保模糊区域不会超出容器 */
+}
+
+.carousel::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-image: url(../img/carouselImg.jpg);
+/* cover只是让其覆盖完全 */
+background-size: cover;
+/* center center一样模糊时模糊到具体内容,使其有颜色 */
+background-position: center center;
+filter: blur(20px); /* 高斯模糊效果 */
+transform: scale(1.2); /* 防止边缘被裁剪 */
+z-index: -1; /* 让背景置于内容后面 */
+}
+
+.carousel .carousel-inner{
+  position: relative;
+  width: 982px;
+  height: 285px;
+  margin: 0 auto;
+  background-color: red;
+  /* 使内容一直在模糊图片上面 */
+  z-index: 1;
+}
+/* 轮播图左边 */
+.carousel .area-left {
+  position: relative;
+  width: 730px;
+}
+.carousel .carousel-inner ul{
+  display: flex;
+  overflow: hidden;
+}
+.carousel .area-left img {
+  /* 问题:图片底部留有空间:因为vertical-align:baseline,会给g留空间 */
+  /* way1:display: block; */
+  /* way2:直接在common.css里面vertical-align: top; */
+  /* way3:父元素设宽高,img直接h100%+w100% */
+
+  /* 问题:这里为什么没有图片底部留言空间问题,有只不过这里看不见罢了,当出现是知道怎么做就行 */
+  /* display: block; */
+  vertical-align: top;
+  height: 285px;
+}
+
+/* 轮播图左边的指示器 */
+/* 网易云做法 */
+/* .carousel .area-left .dot {
+  position: absolute;
+  top: 259px;
+  left: 0;
+  width: 730px;
+  height: 20px;
+  text-align: center;
+}
+.carousel .area-left .dot .item {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../img/carouselSprite.png) 3px -343px;
+} */
+/* 网易云做法结束 */
+
+/* 老师做法(display:flex) */
+.carousel .area-left .dot {
+  display: flex;
+  position: absolute;
+  top: 259px;
+  /* left0+right0作用相当于设置height为100%,上面设的具体width来占满,作用为了justify-content:center,上面做法是text-align:center */
+  left: 0;
+  right: 0;
+  justify-content: center;
+}
+.carousel .area-left .dot .item {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../img/carouselSprite.png) 3px -343px;
+}
+/* 老师做法结束 */
+.carousel .area-left .dot .active,.carousel .area-left .dot .item:hover {
+  background: url(../img/carouselSprite.png) -16px -343px;
+}
+
+/* 轮播图右边 */
+.carousel .carousel-inner .area-right {
+  position: absolute;
+  /* top0+botton0可以自动为height100% */
+  top: 0;
+  bottom: 0;
+  right: -1px;
+  z-index: 20;
+  width: 254px;
+  height: 285px;
+  background: url(../img/carouselRightImg.png) no-repeat 0 0;
+}
+.carousel .area-right a {
+  display: block;
+  width: 215px;
+  height: 56px;
+  margin: 186px 0 0 19px;
+  text-indent: -9999px;
+}
+.carousel .area-right a:hover {
+  background:url(../img/download.png) 0 -290px;
+  text-decoration: none;
+}
+
+/* 轮播图右边文字 */
+.carousel .area-right p {
+  margin: 10px auto;
+  text-align: center;
+  color: #8d8d8d;
+}
+
+/* 左右提示器 */
+.carousel .click-flag .control {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: red;
+  /* 由于父元素设立了高度可以是用margin:auto 0 */
+  /* 这里父元素高度为0一样可以,因为top0+bottom0强行使其有高度(height100%)(或者可以理解为把父元素变为了有高度的祖宗元素这里是爷元素) */
+  margin: auto 0;
+  width: 37px;
+  height: 63px;
+  /* 这里的9999px只是为了显示不了,为了下面元素可以直接background-positon:x x; */
+  background: url(../img/carouselSprite.png) 0 9999px no-repeat;
+}
+.carousel .click-flag .control-left {
+  left: -68px;
+  background-position: 0 -360px;
+}
+.carousel .click-flag .control-right {
+  right: -68px;
+  background-position: 0 -508px;
+}
+.carousel .click-flag .control-left:hover {
+  background-position: 0 -430px;
+}
+.carousel .click-flag .control-right:hover {
+  background-position: 0 -578px;
+}

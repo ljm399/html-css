@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/comman.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <style>
+     .main {
+      display: flex;
+      justify-content: space-between;
+      border: 1px solid #d3d3d3;
+      /* 设值border四边宽度 */
+      border-width: 0 1px;
+
+      /* mian总宽度是780,留1给背景图的border,做到靠space-between属性,网易云是float:right */
+      background: url(../img/mainBg.png) repeat-y 100% 100%;
+    }
+    /* 左边 */
+    .main .area-left {
+      box-sizing: border-box;
+      width: 729px;
+      padding: 20px 20px 40px;
+    }
+
+    /* 右边 */
+    .main .area-right {
+      width: 250px;
+    }
+
+    /* 底部 */
+    .foot {
+      background-color: #f2f2f2;
+    }
+
+    .foot .icon-list {
+      display: flex;
+      margin-top: 33px;
+      justify-content: space-evenly;
+
+    }
+    .foot .icon-list .item .icon{ 
+      display: block;
+      width: 45px;
+      height: 45px;
+      margin: 0 auto;
+      background: url(../img/moreIcon2.png) no-repeat -170px -5px;
+      background-size: 220px 220px;
+    }
+
+    /* hover可以直接使用background-position */
+    .foot .icon-list .item .icon:hover{
+      background-position: -5px -115px;
+    }
+
+    .foot .icon-list .item .tit {
+      display: inline-block;
+      width: 100px;
+      margin-top: 10px;
+      text-align: center;
+    }
+    
+    .foot .declaration {
+      margin-top: 60px;
+    }
+
+    .foot .f-list1  {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+
+    .foot .f-list1 span {
+      margin: 0 8px 0 8px;
+      color: #666;
+      
+    }
+
+    .foot .f-list1 .police-icon {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      background: url(../img/police.png) no-repeat;
+      background-size: cover;
+      margin-right: 0px;
+      vertical-align: -2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper_02 main">
+    <div class="area-left"></div>
+    <div class="area-right"></div>
+  </div>
+  <div class="foot wrapper_02">
+    <ul class="icon-list">
+      <li class="item">
+        <a href="#" class="icon active"></a>
+        <span class="tit">音乐开放平台</span>
+      </li>
+      <li class="item">
+        <a href="#" class="icon"></a>
+        <span class="tit">音乐开放平台</span>
+      </li>
+      <li class="item">
+        <a href="#" class="icon"></a>
+        <span class="tit">音乐开放平台</span>
+      </li>
+      <li class="item">
+        <a href="#" class="icon"></a>
+        <span class="tit">音乐开放平台</span>
+      </li>
+      <li class="item">
+        <a href="#" class="icon"></a>
+        <span class="tit">音乐开放平台</span>
+      </li>
+      <li class="item">
+        <a href="#" class="icon"></a>
+        <span class="tit">音乐开放平台</span>
+      </li>
+    </ul>
+
+    <div class="declaration">
+      <p class="f-list1">
+        <a href="#">服务条款</a>
+        <span>|</span>
+        <a href="#">服务条款</a>
+        <span>|</span>
+        <a href="#">服务条款</a>
+        <span>|</span>
+        <a href="#">服务条款</a>
+        <span>|</span>
+        <a href="#">服务条款</a>
+        <span>|</span>
+        <a href="#">服务条款</a>
+        <span>|</span>
+        <a href="#">服务条款</a>
+      </p>
+      <p class="f-list1">
+        <a href="#">廉正举报</a>
+        <span>不良信息举报邮箱: 51jubao@service.netease.com</span>
+        <a href="#">客服热线：95163298</a>
+      </p>
+      <p class="f-list1">
+        互联网宗教信息服务许可证：浙（2022）0000120 增值电信业务经营许可证：浙B2-20150198 粤B2-20090191-18  工业和信息化部备案管理系统网站
+      </p>
+      <p class="f-list1">
+        <span>网易公司版权所有©1997-2025</span>
+        <span>网易公司版权所有©1997-2025</span>
+        <a href="#">
+          <span class="police-icon"></span>
+          浙网文[2024] 0900-042号
+        </a>
+        <a href="#"> 浙公网安备 33010802013307号 算法服务公示信息</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>

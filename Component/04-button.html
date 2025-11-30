@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/comman.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <style>
+    body{
+      margin-left: 300px;
+    }
+    .apply{
+      width: 250px;
+    }
+    .btn-type-01{
+      display: block;
+    }
+    .btn-module{
+      /* 包裹子元素,设block会自动填充父元素宽度而不是被子元素撑开 */
+      /* display: inline-block;则是由子元素或自身设的宽度决定 */
+
+      /* 给了其父元素设了宽度,让其继承 */
+      display:block;
+      height: 31px;
+      line-height: 31px;
+      padding-right:5px ;
+      text-align: center;
+      background: url(../img/btn.png) no-repeat right -100px;
+    }
+    .btn-module i{
+      display: block;
+      font-weight: bold;
+      background-position: 0 -59px;
+      color: #333;
+    }
+
+    /* 按钮2 */
+    .btn-type-02{
+      display: inline-block;
+
+    }
+    .btn-type-02 i{
+      /* 相比上面你元素设立padding */
+      background-position: 0 -977px;
+      padding: 0 2px 0 28px;
+    }
+
+    /* 第三种按钮 */
+    .btn-type-03 {
+      float: left;
+      color: #fff;
+      background-position: right -428px;
+    }
+    .btn-type-03 i{
+      color: #fff;
+      background-position: 0 -387px;
+      padding: 0 7px 0 8px;
+    }
+    .btn-type-03 i em{
+      /* vertical-align是给子元素设的 */
+      vertical-align:top;
+      display: inline-block;
+      width: 20px;
+      height: 18px;
+      margin: 6px 2px 2px 0;
+      background:url(../img/btn.png) no-repeat 0 -1622px;
+    }
+    /* 第四种按钮 */
+    .btn-type-04{
+      float: left;
+      width: 31px;
+      margin-left: -3px;
+      padding-right:0 ;
+      background-position: 0 -1588px;
+    }
+  </style>
+</head>
+<body>
+  <div class="apply">
+    <a href="#" class="btn-module .btn-type-01">
+      <i class="btn-module ">申请成为网易云音乐人</i>
+    </a>
+  </div>
+  <hr>
+  <a href="#" class="btn-module btn-type-02">
+    <i class="btn-module">(4139312)</i>
+  </a>
+  <hr>
+  <a href="#" class="btn-module btn-type-03">
+    <i class="btn-module">
+      <em></em>
+      agg
+    </i>
+  </a>
+  <a href="#" class="btn-module btn-type-04">
+  </a>
+</body>
+</html>

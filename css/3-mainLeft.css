@@ -1,0 +1,430 @@
+.main {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #d3d3d3;
+  /* 设值border四边宽度 */
+  border-width: 0 1px;
+
+  /* mian总宽度是780,留1给背景图的border,做到靠space-between属性,网易云是float:right */
+  background: url(../img/mainBg.png) repeat-y 100% 100%;
+}
+/* 左边 */
+.main .area-left {
+  box-sizing: border-box;
+  width: 729px;
+  padding: 20px 20px 40px;
+}
+
+.main .area-left .head-type-02 {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  background-position: -225px -156px;
+}
+
+.main .area-left .head-type-02 ul {
+  display: inline-flex;
+  margin: 7px 0 0 20px;
+}
+
+.main .area-left .head-type-02 ul .line{
+  display: inline-block;
+  margin: 0 10px;
+}
+
+
+/* 左边导航栏的右边的更多按钮 */
+.main .area-left .head-type-02 .info-right{
+  /* span可以直接用margin-top而不display:flex,因为span是flex子元素 */
+  margin-top: 9px;
+  margin-right: 16px;
+  vertical-align: middle;
+}
+
+
+/* 推荐列表 */
+/* 里面的封面与里面的内容 */
+.main .area-left .rcm-list {
+  display: flex;
+  /* 包裹而不换行 */
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px 2px;
+ 
+}
+
+.main .area-left .rcm-list li {
+  width: 140px;
+  height: 204px;
+  margin-bottom: 20px;
+}
+
+.main .area-left .sing-cover {
+  position: relative;
+  width: 140px;
+  height: 140px;
+}
+
+.main .area-left .rcm-list img {
+  /* 他里面图片是处理过的所有不用设具体高度,所有图片全会相同大小 */
+  width: 100%;
+  height: 100%;
+}
+
+.main .area-left .rcm-list .cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(../img/coverImg.png) no-repeat 0 0;
+}
+
+.main .area-left .rcm-list .bottom {
+  /* 在没有设置 z-index 的情况下，层叠顺序是按照 HTML 中元素的顺序来决定的。
+  后面的元素（bottom）会覆盖前面的元素（cover）*/
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 27px;
+  background: url(../img/coverImg.png) no-repeat 0 -537px;
+  color: #ccc;
+} 
+
+.main .area-left .rcm-list .bottom i {
+  /* display: inline-block; */
+  float: left;
+  width: 14px;
+  height: 11px;
+  background:url(../img/coverImg2.png) no-repeat 0 -24px;
+  margin: 9px 5px 9px 10px;
+}
+
+.main .area-left .rcm-list .bottom span {
+  float: left;
+  margin: 7px 0 0 0;
+}
+
+.main .area-left .rcm-list .bottom a {
+  float: right;
+  width: 16px;
+  height: 17px;
+  margin: 6px 10px 9px 10px;
+  background: url(../img/coverImg2.png) no-repeat 0 0;
+}
+
+/* 下面标题 */
+.main .area-left .rcm-list .dec {
+  margin: 8px 0 3px 0;
+}
+
+.main .area-left .rcm-list .dec a {
+  color: #000;
+  font-size: 14px;
+}
+
+.main .area-left .rcm-list .dec a i {
+  display: inline-block;
+  width: 35px;
+  height: 15px;
+  background:url(../img/MoreIcon.png) no-repeat -31px -658px;
+  vertical-align: middle;
+  margin-top: -1px;
+  margin-right: 3px;
+}
+
+/* 新歌列表 */
+.main .area-left .nSong-list {
+  height: 186px;
+  margin: 20px 0 37px;
+  border: 1px solid #d3d3d3;
+}
+
+.main .area-left .nSong-list .inner-border {
+  position: relative;
+  height: 184px;
+  padding-left: 16px;
+  background-color: #f5f5f5;
+  border: 1px solid #fff;
+}
+
+.main .area-left .nSong-list .innerBox {
+  display: flex;
+  width: 645px;
+  height: 180px;
+  overflow: hidden;
+}
+
+.main .area-left .nSong-list ul {
+  display: flex;
+  margin-top: 28px;
+}
+
+.main .area-left .nSong-list ul .item {
+  width: 118px;
+  height: 150px;
+  margin-left: 11px;
+  background: url(../img/user-login.png) no-repeat -260px 100px;
+
+}
+
+.main .area-left .nSong-list .item .cover {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 7px;
+}
+
+.main .area-left .nSong-list .item .cover a {
+  position: absolute;
+  top:0;
+  left:0;
+  width: 118px;
+  height: 100px;
+  background: url(../img/coverImg.png) no-repeat 0 -570px;
+}
+
+.main .area-left .nSong-list .item .des a {
+  display: block;
+  /* margin-top: 7px; */
+  width: 90%;
+  line-height: 18px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+.main .area-left .nSong-list .item .des a:first-child {
+  color: #000;
+} 
+
+/* 列表指示器 */
+.main .area-left .nSong-list .item .indicator {
+  position: absolute;
+  top: 71px;
+  width: 17px;
+  height: 17px;
+  background: url(../img/user-login.png);
+}
+
+.main .area-left .nSong-list .item a.indi-left {
+  left: 4px;
+  background-position: -260px -75px;
+}
+
+.main .area-left .nSong-list .item a.indi-left:hover {
+  background-position: -280px -75px;
+}
+
+.main .area-left .nSong-list .item a.indi-right {
+  right: 4px;
+  background-position: -300px -75px;
+}
+
+.main .area-left .nSong-list .item a.indi-right:hover {
+  background-position: -320px -75px;
+}
+
+/* rank列表 */
+.main .area-left .rank-list {
+  display: flex;
+  height: 472px;
+  margin-top: 20px;
+  padding-left: 1px;
+  background: url(../img/rankImg.png) no-repeat;
+}
+
+.main .area-left .rank-list>dl {
+  width: 230px;
+}
+
+.main .area-left .rank-list .rank-right {
+  width: 228px;
+}
+
+.area-left .rank-list dt {
+  display: flex;
+  height: 100px;
+  padding: 20px 0 0 19px;
+}
+
+.area-left .rank-list dt .coverImg {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.area-left .rank-list dt img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}   
+
+.area-left .rank-list dt .cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+
+.area-left .rank-list dt .tit {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+.area-left .rank-list dt .tit:hover{
+  text-decoration: underline;
+}
+
+.area-left .rank-list dt .info {
+  margin: 6px 0 0 10px;
+}
+
+.area-left .rank-list dt .btnBox {
+  display: flex;
+  margin-top: 10px;
+}
+
+.area-left .rank-list dt .btnBox .btn {
+  display: block;
+  width: 22px;
+  height: 22px;
+  margin-right: 10px;
+  text-indent: -9999px;
+  background: url(../img/user-login.png) no-repeat;
+}
+
+.area-left .rank-list dt .btn.play {
+  background-position: -267px -205px;
+}
+
+.area-left .rank-list dt .btn.play:hover {
+  background-position: -267px -235px;
+}
+
+.area-left .rank-list dt .btn.favor {
+  background-position: -300px -205px;
+} 
+
+.area-left .rank-list dt .btn.favor:hover {
+  background-position: -300px -235px;
+}
+
+.area-left .rank-list dd ol {
+  margin-left: 50px;
+}
+
+.area-left .rank-list dd ol .item{
+  display: flex;
+  justify-content: space-evenly;
+  line-height: 32px;
+
+  /* 元素之间用margin,包裹用padding */
+  padding-right: 5px;
+}
+
+.area-left .rank-list dd span {
+  display: block;
+  height: 32px;
+  width: 35px;
+  margin-left: -35px;
+  text-align: center;
+}
+
+.area-left .rank-list dd .name {
+  display: block;
+  color: #000;
+  flex: 1;
+  height: 32px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+.area-left .rank-list dd .name:hover {
+  text-decoration: underline;
+}
+
+.area-left .rank-list dd .oper {
+  display: none;
+  justify-content: space-evenly;
+  width: 82px;
+  text-indent: -9999px;
+}
+
+.area-left .rank-list dd .btn {
+  /* 设了float,默认有inline-block属性 */
+  float: left;
+  width: 17px;
+  height: 17px;
+  margin-top: 8px;
+  background: url(../img/user-login.png) no-repeat;
+} 
+
+.area-left .rank-list dd .btn.play {
+  background-position: -267px -268px;
+}
+
+.area-left .rank-list dd .btn.play:hover {
+  background-position: -267px -288px;
+}
+
+.area-left .rank-list dd .btn.add {
+  background:url(../img/MoreIcon.png) no-repeat 0 -698px;
+  margin-left: 2px;
+} 
+
+.area-left .rank-list dd .btn.add:hover {
+  background:url(../img/MoreIcon.png) no-repeat -22px -698px;
+}
+
+.area-left .rank-list dd .btn.favor {
+  background-position: -297px -268px;
+} 
+
+.area-left .rank-list dd .btn.favor:hover {
+  background-position: -297px -288px
+}
+
+/* 前3字体为红色 */
+.area-left .rank-list dd ol span{
+  font-size: 16px;
+}
+
+/*ol .item:nth-child(-n+3)是选择ol下前3个.item元素无论是不是.item,nth-of-type(n-3)则在乎是.item的元素 */
+.area-left .rank-list dd ol .item:nth-child(-n+3) span {
+  color: #c10d0c;
+}
+
+/* 底层more */
+.area-left .rank-list dd .more {
+  display: block;
+  height: 32px;
+  line-height: 32px;
+  padding-right: 30px;
+  color: #000;
+  text-align: right;
+
+}
+
+.area-left .rank-list dd .more:hover {
+  text-decoration: underline;
+}
+
+/* btn组合按钮消失和隐藏 */
+.area-left .rank-list dd ol .item:hover .oper{
+  display: flex;
+}
+
+/* 右边 */
+.main .area-right {
+  width: 250px;
+}
