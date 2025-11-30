@@ -36,3 +36,27 @@
 - ✅ 页面细节还原能力
 - ✅ SEO 优化基础知识
 
+## 🚀 快速开始
+
+### 方式一：直接打开
+
+1. 克隆或下载项目到本地
+2. 直接双击 `index.html` 文件在浏览器中打开
+
+### 方式二：使用 Live Server（推荐）
+
+1. 安装 VS Code 插件 [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+2. 右键点击 `index.html`，选择 "Open with Live Server"
+3. 项目将在 `http://127.0.0.1:5500` 启动
+
+### 方式三：使用 http-server
+
+```bash
+# 全局安装 http-server
+npm install -g http-server
+
+# 在项目目录运行
+http-server
+
+# 访问 http://localhost:8080
+```
