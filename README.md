@@ -8,7 +8,7 @@
 
 ### 首页效果
 
-![网易云音乐首页](D:\Desktop\JavaScript\ECMAScript语法部分\htmlcss\css\17网易云\doc\images\Snipaste_2025-11-30_10-44-18.png)
+![网易云音乐首页](https://raw.githubusercontent.com/ljm399/html-css/refs/heads/main/doc/images/Snipaste_2025-11-30_10-44-18.png)
 
 ## 🛠️ 技术栈
 
